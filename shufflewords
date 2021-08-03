@@ -1,0 +1,48 @@
+Java Program to Check if a string is a valid shuffle of two distinct strings
+In this example, we will check if a string is the valid shuffle of two other strings in Java.
+
+To understand this example, you should have the knowledge of the following Java programming topics:
+
+Java String
+Java while and do...while Loop
+//we have done it using c++
+
+
+
+#include <iostream>
+
+using namespace std;
+void shuffle()
+{
+    string s1,s2,res;
+    cin>>s1>>s2>>res;
+    int l1=s1.length();
+    int l2=s2.length();
+    int lr=res.length();
+    if((l1+l2)!=lr)
+    {
+       cout<<"No"; 
+    }
+    else
+    {
+        int k=0,i=0,j=0;int f=0;
+        while(k<lr)
+        {
+            if(i<l1 and s1[i]==res[k])i++;
+            else if(j<l2 and s2[j]==res[k])j++;
+            else{
+                f=1;break;
+            }
+            k++;
+        }
+        if(k<lr)
+        cout<<"No";
+        else
+        cout<<"yes";
+    }
+}
+int main()
+{
+    shuffle();
+    return 0;
+}
