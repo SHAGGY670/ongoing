@@ -1,0 +1,46 @@
+
+program to find aindex of a number in a rotated sorted array
+
+
+
+
+
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        //initialise low and high
+        int low = 0;
+        int high = nums.size()-1;
+        
+        //start the loop
+        while(high>=low){
+            int mid = low + (high-low)/2;
+            
+            //1st condn: if mid is the element
+            if(nums[mid] == target){
+                return mid;
+            }
+            
+            //2nd condn: normal array seq
+            else if(nums[mid]>=nums[low]){
+                if(target<nums[mid] && target>=nums[low]){
+                    high = mid-1;
+                }
+                else{
+                    low = mid+1;
+                }
+            }
+            
+            //3rd condn: tampered array
+            else{
+                if(target>nums[mid] && target<=nums[high]){
+                    low = mid+1;
+                }
+                else{
+                    high = mid-1;
+                }
+            }
+        }
+        return -1;
+    }
+};
