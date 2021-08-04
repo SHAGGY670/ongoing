@@ -1,0 +1,16 @@
+permutation of a string
+
+
+
+
+vector<string>find_permutation(string S)
+		{
+		    // Code here there
+		    sort(S.begin(),S.end());
+		    cout<<S;
+		    while(next_permutation(S.begin(),S.end()))
+		    {
+		        cout<<S<<" ";
+		    }
+		    return S;
+		}
